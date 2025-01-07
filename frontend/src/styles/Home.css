@@ -1,0 +1,109 @@
+/* src/styles/Home.css */
+
+.home-container {
+    padding: 2rem;
+    font-family: Arial, sans-serif;
+    background-color: var(--neutral-light-gray); /* Fondo neutro */
+    color: var(--neutral-dark-gray); /* Texto principal */
+  }
+  
+  .home-header {
+    text-align: center;
+    margin-bottom: 2rem;
+  }
+  
+  .home-header h1 {
+    font-size: 2.5rem;
+    color: var(--primary-blue); /* Azul principal */
+    margin-bottom: 1rem;
+  }
+  
+  .home-header p {
+    font-size: 1.2rem;
+    color: var(--neutral-dark-gray);
+    line-height: 1.6;
+  }
+  
+  .home-content {
+    margin: 2rem 0;
+  }
+  
+  .home-content h2 {
+    font-size: 2rem;
+    color: var(--secondary-lavender); /* Lavanda claro */
+    margin-bottom: 1rem;
+  }
+  
+  .home-content ul {
+    list-style: none;
+    padding: 0;
+  }
+  
+  .home-content ul li {
+    margin-bottom: 0.5rem;
+    font-size: 1.1rem;
+    padding-left: 1rem;
+    position: relative;
+    color: var(--neutral-dark-gray);
+  }
+  
+  .home-content ul li::before {
+    content: "✔";
+    color: var(--accent-yellow); /* Mostaza claro */
+    font-size: 1.2rem;
+    position: absolute;
+    left: 0;
+    top: 0;
+  }
+  
+  .home-call-to-action {
+    text-align: center;
+    margin-top: 3rem;
+    background-color: var(--secondary-mint-green); /* Verde menta */
+    padding: 2rem;
+    border-radius: 10px;
+  }
+  
+  .home-call-to-action h2 {
+    font-size: 1.8rem;
+    color: var(--neutral-dark-gray);
+    margin-bottom: 1rem;
+  }
+  
+  .home-call-to-action p {
+    font-size: 1.1rem;
+    margin-bottom: 2rem;
+    color: var(--neutral-dark-gray);
+  }
+  
+  .cta-button {
+    padding: 0.8rem 1.5rem;
+    background-color: var(--primary-blue); /* Azul principal */
+    color: white;
+    border: none;
+    border-radius: 5px;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+  }
+  
+  .cta-button:hover {
+    background-color: var(--secondary-lavender); /* Lavanda claro */
+  }
+  
+  @media (max-width: 768px) {
+    .home-header h1 {
+      font-size: 2rem;
+    }
+  
+    .home-header p,
+    .home-content h2,
+    .home-call-to-action h2 {
+      font-size: 1.2rem;
+    }
+  
+    .cta-button {
+      font-size: 0.9rem;
+    }
+  }
+  
