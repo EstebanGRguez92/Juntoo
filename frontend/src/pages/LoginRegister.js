@@ -133,9 +133,16 @@ const LoginRegister = () => {
             {isRegister ? "Registrarse" : "Iniciar Sesión"}
           </button>
         </form>
+
+        {/* Divisor con texto */}
+        <div className="divider">
+          <span>O puedes continuar con tus redes sociales</span>
+        </div>
+
         <div className="social-login">
           <button className="google-btn">Continuar con Google</button>
           <button className="facebook-btn">Continuar con Facebook</button>
+          <button className="x-btn">Continuar con X</button>
         </div>
         <p className="toggle-form">
           {isRegister ? (
