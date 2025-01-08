@@ -1,17 +1,16 @@
 import React from "react";
 import { Navigate } from "react-router-dom";
-import { useAuth } from "../context/AuthContext";
 
 const ProtectedRoute = ({ children }) => {
-  const { isAuthenticated } = useAuth();
+  const user = JSON.parse(localStorage.getItem("user"));
+  console.log("Usuario autenticado:", user); // Agrega este log
 
-  // Si no está autenticado, redirige al login
-  if (!isAuthenticated) {
-    return <Navigate to="/login" replace />;
+  if (!user) {
+    return <Navigate to="/login" />;
   }
 
-  // Si está autenticado, renderiza el contenido protegido
   return children;
 };
+
 
 export default ProtectedRoute;
