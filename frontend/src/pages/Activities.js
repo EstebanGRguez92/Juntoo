@@ -12,12 +12,30 @@ const Activities = () => {
       address: "Av. Las Flores 123, CDMX",
       dateTime: "2025-01-10 09:00 AM",
     },
+    {
+      id: 2,
+      title: "Clase de Yoga en el Parque",
+      creator: "Ana López",
+      profilePic: "https://via.placeholder.com/40",
+      locationName: "Parque Central",
+      address: "Av. Las Flores 123, CDMX",
+      dateTime: "2025-01-10 09:00 AM",
+    },
+    {
+      id: 3,
+      title: "Clase de Yoga en el Parque",
+      creator: "Ana López",
+      profilePic: "https://via.placeholder.com/40",
+      locationName: "Parque Central",
+      address: "Av. Las Flores 123, CDMX",
+      dateTime: "2025-01-10 09:00 AM",
+    },
     // Más actividades...
   ];
 
   return (
     <section className="activities-container">
-      <h2>Actividades Disponibles</h2>
+    <h2>Actividades Disponibles</h2>
       {activities.length > 0 ? (
         <ul className="activities-list">
           {activities.map((activity) => (

@@ -2,7 +2,7 @@
 
 .home-container {
     padding: 2rem;
-    font-family: Arial, sans-serif;
+    font-family: 'Roboto', sans-serif;
     background-color: var(--neutral-light-gray); /* Fondo neutro */
     color: var(--neutral-dark-gray); /* Texto principal */
   }
