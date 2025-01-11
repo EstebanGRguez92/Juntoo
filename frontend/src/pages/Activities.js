@@ -1,5 +1,6 @@
 import React from "react";
 import "./../styles/Activities.css";
+import profileImage from "../images/logo192.png";
 
 const Activities = () => {
   const activities = [
@@ -7,7 +8,7 @@ const Activities = () => {
       id: 1,
       title: "Clase de Yoga en el Parque",
       creator: "Ana López",
-      profilePic: "https://via.placeholder.com/40",
+      profilePic: {profileImage},
       locationName: "Parque Central",
       address: "Av. Las Flores 123, CDMX",
       dateTime: "2025-01-10 09:00 AM",
@@ -16,7 +17,7 @@ const Activities = () => {
       id: 2,
       title: "Clase de Yoga en el Parque",
       creator: "Ana López",
-      profilePic: "https://via.placeholder.com/40",
+      profilePic: {profileImage},
       locationName: "Parque Central",
       address: "Av. Las Flores 123, CDMX",
       dateTime: "2025-01-10 09:00 AM",
@@ -25,7 +26,7 @@ const Activities = () => {
       id: 3,
       title: "Clase de Yoga en el Parque",
       creator: "Ana López",
-      profilePic: "https://via.placeholder.com/40",
+      profilePic: {profileImage},
       locationName: "Parque Central",
       address: "Av. Las Flores 123, CDMX",
       dateTime: "2025-01-10 09:00 AM",
@@ -43,7 +44,7 @@ const Activities = () => {
               <article>
                 <div className="activity-header">
                   <img
-                    src={activity.profilePic}
+                    src={profileImage}
                     alt={`${activity.creator} profile`}
                     className="profile-pic"
                   />

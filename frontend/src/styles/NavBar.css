@@ -75,6 +75,10 @@
   display: block; /* Mostrar dropdown solo en escritorio */
 }
 
+.navbar-profile-pic{
+  width: 40px;
+}
+
 .navbar-dropdown li {
   margin: 10px 0;
 }

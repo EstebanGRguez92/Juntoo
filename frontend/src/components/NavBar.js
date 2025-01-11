@@ -1,6 +1,7 @@
 import React, { useState, useEffect, useRef } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import "../styles/NavBar.css";
+import profileImage from "../images/logo192.png";
 
 function NavBar() {
   const [isMenuOpen, setIsMenuOpen] = useState(false); // Menú móvil
@@ -79,6 +80,14 @@ function NavBar() {
             </Link>
           </li>
         )}
+        {/* Botón Login/SignUp para usuarios no autenticados */}
+        {!user && (
+          <li>
+            <Link to="/login" onClick={closeMenu}>
+              Ingresar
+            </Link>
+          </li>
+        )}
       </ul>
 
       {/* Ícono de perfil (escritorio) */}
@@ -89,7 +98,7 @@ function NavBar() {
             onClick={toggleProfileDropdown}
           >
             <img
-              src="https://via.placeholder.com/40"
+              src={profileImage}
               alt="Perfil"
               className="navbar-profile-pic"
             />
@@ -162,6 +171,14 @@ function NavBar() {
                 <button onClick={handleLogout}>Cerrar sesión</button>
               </li>
             </>
+          )}
+          {/* Botón Login/SignUp para usuarios no autenticados */}
+          {!user && (
+            <li>
+              <Link to="/login" onClick={closeMenu}>
+                Ingresar
+              </Link>
+            </li>
           )}
         </ul>
       </div>

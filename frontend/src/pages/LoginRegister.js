@@ -5,7 +5,7 @@ import { registerUser, loginUser } from "./../api/auth";
 
 const LoginRegister = () => {
   const navigate = useNavigate();
-  const [isRegister, setIsRegister] = useState(true);
+  const [isRegister, setIsRegister] = useState(false);
   const [formData, setFormData] = useState({
     username: "",
     email: "",

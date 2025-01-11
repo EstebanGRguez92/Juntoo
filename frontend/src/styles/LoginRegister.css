@@ -34,13 +34,20 @@ label {
 }
 
 input {
-  width: 100%;
+  width: 93%;
   padding: 0.8rem;
   margin-bottom: 1rem;
   border: 1px solid #dcdcdc;
   border-radius: 5px;
   font-size: 14px;
   outline: none;
+}
+
+/* Mobile-specific styles */
+@media (max-width: 768px) {
+  input {
+    width: 91%;
+  }
 }
 
 input:focus {
