@@ -1,6 +1,7 @@
 const express = require('express');
 const router = express.Router();
 const User = require('../models/User'); // Modelo de usuario
+const bcrypt = require("bcrypt"); // Importamos bcrypt
 
 // Ruta para registro de usuario
 router.post('/register', async (req, res) => {
@@ -18,8 +19,12 @@ router.post('/register', async (req, res) => {
             return res.status(400).json({ message: 'El correo ya está registrado.' });
         }
 
+        // Cifrar la contraseña
+        const saltRounds = 10; // Nivel de cifrado (puedes cambiarlo)
+        const hashedPassword = await bcrypt.hash(password, saltRounds);
+
         // Crear nuevo usuario
-        const newUser = new User({ username, email, password });
+        const newUser = new User({ username, email, password: hashedPassword });
         await newUser.save();
 
         return res.status(201).json({ message: 'Usuario registrado exitosamente.', user: newUser });
