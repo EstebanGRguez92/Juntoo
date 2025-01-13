@@ -5,6 +5,18 @@ const bcrypt = require('bcrypt'); // Para cifrado de contraseñas
 const { body, validationResult } = require('express-validator');
 const { generateToken } = require('../utils/jwt'); // Importar función para generar tokens
 const authenticateToken = require('../middlewares/auth');
+const rateLimit = require('express-rate-limit');
+
+const loginLimiter = rateLimit({
+    windowMs: 15 * 60 * 1000, // Ventana de tiempo: 15 minutos
+    max: 5, // Máximo de 5 intentos por IP
+    message: {
+      message: "Has excedido el número de intentos de inicio de sesión. Intenta nuevamente después de 15 minutos.",
+    },
+    standardHeaders: true, // Enviar información de límites en los headers `RateLimit-*`
+    legacyHeaders: false, // Deshabilitar headers `X-RateLimit-*`
+});
+
 
 // Ruta para registro de usuario
 router.post(
@@ -70,6 +82,7 @@ router.post(
 // Ruta para inicio de sesión
 router.post(
     '/login',
+    loginLimiter, // Aplica el limitador a la ruta de login
     [
         body('email').isEmail().withMessage('Debe proporcionar un correo válido.'),
         body('password').notEmpty().withMessage('La contraseña es obligatoria.')

@@ -85,8 +85,11 @@ const LoginRegister = () => {
         }
       }
     } catch (error) {
-      console.error("Error en el servidor:", error);
-      alert(error.message || "Hubo un problema al conectar con el servidor.");
+      if (error.response?.status === 429) {
+        alert("Demasiados intentos fallidos. Intenta nuevamente más tarde.");
+      } else {
+        alert(error.message || "Hubo un problema al conectar con el servidor.");
+      }
     }
   };
 

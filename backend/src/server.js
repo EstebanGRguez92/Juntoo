@@ -1,5 +1,4 @@
 require('dotenv').config(); // Cargar variables de entorno al inicio
-console.log('JWT_SECRET:', process.env.JWT_SECRET);
 
 const express = require('express');
 const cors = require('cors');
