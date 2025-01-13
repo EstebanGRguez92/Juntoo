@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react"; // Asegúrate de importar useEffect
 import "./../styles/LoginRegister.css";
 import { useNavigate } from "react-router-dom";
 import { registerUser, loginUser } from "./../api/auth";
@@ -13,6 +13,14 @@ const LoginRegister = () => {
     confirmPassword: "",
   });
   const [errors, setErrors] = useState({});
+
+  useEffect(() => {
+    const token = localStorage.getItem("token");
+    if (token) {
+      // Si el token existe, redirigir a /activities
+      navigate("/activities");
+    }
+  }, [navigate]);
 
   const handleInputChange = (e) => {
     setFormData({
@@ -64,7 +72,11 @@ const LoginRegister = () => {
         const response = await loginUser(formData);
         if (response?.message?.includes("Inicio de sesión exitoso")) {
           console.log("Datos del usuario recibidos del servidor:", response.user);
+          // Guardar token en localStorage
+          localStorage.setItem("token", response.token);
+          // Guardar datos del usuario (opcional)
           localStorage.setItem("user", JSON.stringify(response.user));
+          console.log("Token guardado en localStorage:", localStorage.getItem("token"));
           console.log("Datos guardados en localStorage:", localStorage.getItem("user"));
           alert(response.message);
           navigate("/activities");

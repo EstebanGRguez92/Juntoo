@@ -1,4 +1,5 @@
-import React from "react";
+import React, { useEffect } from 'react';
+import { useNavigate } from 'react-router-dom';
 import "./../styles/Activities.css";
 import profileImage from "../images/logo192.png";
 
@@ -33,6 +34,36 @@ const Activities = () => {
     },
     // Más actividades...
   ];
+
+  const navigate = useNavigate();
+
+  useEffect(() => {
+    const token = localStorage.getItem('token'); // Obtener el token almacenado en el navegador
+
+    if (!token) {
+        // Si no hay token, redirigir al login
+        navigate('/login');
+    } else {
+        // Opcional: Verificar si el token sigue siendo válido haciendo una solicitud al backend
+        fetch('http://localhost:5001/api/validate-token', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json',
+                Authorization: `Bearer ${token}`, // Incluir el token en el encabezado
+            },
+        })
+            .then((response) => {
+                if (!response.ok) {
+                    // Token inválido, redirigir al login
+                    navigate('/login');
+                }
+            })
+            .catch(() => {
+                // Error de red, redirigir al login
+                navigate('/login');
+            });
+    }
+}, [navigate]);
 
   return (
     <section className="activities-container">
